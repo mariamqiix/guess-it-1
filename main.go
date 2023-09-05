@@ -17,7 +17,7 @@ func main() {
 	array := returnFileinArray("file.txt")
 y := (((currentY-firstY)/x)*x) + firstY
 Vari := Variance(array)/
-Yrange := (int(Vari)/y)
+Yrange := (int(Vari)/8)
 fmt.Print((currentY-Yrange))
 fmt.Print(" - ")
 fmt.Print(currentY+Yrange)
