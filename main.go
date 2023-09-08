@@ -16,11 +16,11 @@ func main() {
 	firstY ,_ := strconv.Atoi(ReadFile("file.txt",1))
 	array := returnFileinArray("file.txt")
 y := (((currentY-firstY)/x)*x) + firstY
-Vari := Variance(array)/
-Yrange := (int(Vari)/8)
-fmt.Print((currentY-Yrange))
+Vari := Variance(array)
+Yrange := (int(Vari)/10)
+fmt.Print((y-(Yrange/3)))
 fmt.Print(" - ")
-fmt.Print(currentY+Yrange)
+fmt.Print(y+(Yrange/3))
 } else {
 	fmt.Println("you should write \ngo run . X ")
 }
