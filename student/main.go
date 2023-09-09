@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math"
+	// "math"
 	"os"
 	"sort"
 	"strconv"
@@ -11,7 +11,7 @@ import (
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
-	x := 0	
+	x := 0
 	var array []int
 	for scanner.Scan() {
 		currentY, _ := strconv.Atoi(scanner.Text())
@@ -19,11 +19,12 @@ func main() {
 		array = append(array, currentY)
 		firstY := array[0]
 		y := (((currentY - firstY) / x) * x) + firstY
-		Vari := Variance(array)
+		Vari := Variance(array,x)
 		Yrange := (int(Vari) / 10)
-		fmt.Print((y - (Yrange / 5)))
-		fmt.Print(" - ")
-		fmt.Println(y + (Yrange / 5))
+		fmt.Printf("%d %d\n", (y - (Yrange )), (y + (Yrange )))
+		// fmt.Print()
+		// fmt.Print(" - ")
+		// fmt.Println()
 	}
 }
 
@@ -46,21 +47,23 @@ func Median(i []int) float64 {
 	return Median
 }
 
-func Variance(i []int) float64 {
+func Variance(i []int,n int) float64 {
 	DeltaX := ava(i)
 	TheX := 0.0
+	if n <= 10 {
 	for x := 0; x < len(i); x++ {
 		z := (float64(i[x]) - float64(DeltaX))
 		TheX += (z * z)
+	}} else {
+		for x := n-11 ; x < n ; x++ {
+			z := (float64(i[x]) - float64(DeltaX))
+			TheX += (z * z)
+		}
 	}
-	Variance := TheX / (float64(len(i)))
+	Variance := TheX / (float64(10))
 	return Variance
 }
 
-func StandardDeviation(i []int) float64 {
-	x := Variance(i)
-	return (math.Sqrt(x))
-}
 
 func printError(err error) {
 	fmt.Println("ERROR: " + err.Error())
