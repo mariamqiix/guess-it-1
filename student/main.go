@@ -39,17 +39,6 @@ func ava(i []int) float64 {
 	return (z / float64(len(i)))
 }
 
-func Median(i []int) float64 {
-	sort.Ints(i)
-	Median := 0.0
-	if len(i)%2 == 1 {
-		Median = float64(i[(len(i) / 2)])
-	} else {
-		Median = (float64(i[(len(i)/2)]) + float64(i[(len(i)/2)-1])) / 2.0
-	}
-	return Median
-}
-
 func Variance(i []int,n int) float64 {
 	DeltaX := ava(i)
 	TheX := 0.0
