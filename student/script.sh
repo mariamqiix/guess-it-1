@@ -1,4 +1,3 @@
-#1/bin/bash
+#!/bin/bash
 
-cd student/
-go run .
+go run ./student/main.go
