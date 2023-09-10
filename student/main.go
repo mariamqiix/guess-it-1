@@ -24,7 +24,7 @@ func main() {
 		y := (((currentY - firstY) / x) * x) + firstY
 		Vari := Variance(array,x)
 		Yrange := (int(Vari) / 10)-30
-		fmt.Printf("%d %d\n", (y - (Yrange/50)), (y + (Yrange/50)))
+		fmt.Printf("%d %d\n", (y -3 - (Yrange/50)), (y +3 + (Yrange/50)))
 	}
 }
 func ava(i []int) float64 {
