@@ -1,14 +1,12 @@
 package main
-
 import (
 	"bufio"
 	"fmt"
 	// "math"
 	"os"
-	"sort"
+	// "sort"
 	"strconv"
 )
-
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	x := 0
@@ -18,19 +16,17 @@ func main() {
 		x++
 		if currentY < 20 {
 			currentY = 100
-		} else if currentY < 600 {
+		} else if currentY > 600 {
 			currentY = 200
 		}
 		array = append(array, currentY)
 		firstY := array[0]
 		y := (((currentY - firstY) / x) * x) + firstY
 		Vari := Variance(array,x)
-		Yrange := (int(Vari) / 10)
-		fmt.Printf("%d %d\n", (y - (Yrange )), (y + (Yrange )))
-
+		Yrange := (int(Vari) / 10)-30
+		fmt.Printf("%d %d\n", (y - (Yrange/50)), (y + (Yrange/50)))
 	}
 }
-
 func ava(i []int) float64 {
 	z := 0.0
 	for x := 0; x < len(i); x++ {
@@ -38,23 +34,27 @@ func ava(i []int) float64 {
 	}
 	return (z / float64(len(i)))
 }
-
 func Variance(i []int,n int) float64 {
 	DeltaX := ava(i)
 	TheX := 0.0
-	if n <= 10 {
+	Variance := 0.0
+	if n < 10 {
 	for x := 0; x < len(i); x++ {
 		z := (float64(i[x]) - float64(DeltaX))
 		TheX += (z * z)
-	}} else {
-		for x := n-11 ; x < n ; x++ {
+	}
+	Variance = TheX / (float64(len(i)))
+	} else {
+		for x := 0 ; x < 10 ; x++ {
 			z := (float64(i[x]) - float64(DeltaX))
 			TheX += (z * z)
 		}
+		Variance = TheX / (float64(10))
+
 	}
-	Variance := TheX / (float64(10))
 	return Variance
 }
+
 
 
 func printError(err error) {
